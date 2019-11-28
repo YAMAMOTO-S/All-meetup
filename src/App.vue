@@ -1,45 +1,27 @@
 <template>
   <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
+    <div>
+      <v-toolbar>
+      
+      <v-toolbar-title>Title</v-toolbar-title>
+      <v-toolbar-title>
+        <router-link style="cursor: pointer">
+          <v-icon>mdi-emoticon-neutral-outline</v-icon>
+        </router-link>
+      </v-toolbar-title>
 
       <v-spacer></v-spacer>
 
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
-    </v-app-bar>
+      <v-toolbar-items v-for="item in menuItems" :key="item.title">
+        <v-btn text>{{ item.title }}</v-btn>
+      </v-toolbar-items>
+    </v-toolbar>
 
-    <v-content>
-      <HelloWorld/>
-    </v-content>
+
+
+    <HelloWorld/>
+    </div>
+    
   </v-app>
 </template>
 
@@ -53,8 +35,16 @@ export default {
     HelloWorld,
   },
 
-  data: () => ({
-    //
-  }),
+  data() {
+    return{
+            menuItems: [
+        { icon: 'mdi-face', title: 'Meetup', link: '/meetups'},
+        { icon: 'mdi-account-box-multiple', title: 'Organize Meetup', link: 'meetup/new'},
+        { icon: 'mdi-account-badge-horizontal-outline', title: 'Profile', link: '/profile'},
+        { icon: 'mdi-emoticon-neutral-outline', title: 'Sign up', link: '/signup'},
+        { icon: 'mdi-account-card-details-outline', title: 'Sign in', link: '/signin'}
+      ]
+    }
+  }
 };
 </script>
