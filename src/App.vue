@@ -11,32 +11,32 @@
       <v-spacer></v-spacer>
 
       <v-toolbar-items v-for="item in menuItems" :key="item.title">
-        <v-btn text>{{ item.title }}</v-btn>
+        <v-btn text :to='item.link'>{{ item.title }}</v-btn>
       </v-toolbar-items>
     </v-toolbar>
 
+    <main>
+      <router-view></router-view>
+    </main>
 
-
-    <HelloWorld/>
-    
     </div>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
+// import HelloWorld from './components/HelloWorld';
 
 export default {
   name: 'App',
 
   components: {
-    HelloWorld,
+    // HelloWorld,
   },
 
   data() {
     return{
-            menuItems: [
-        { icon: 'mdi-face', title: 'Meetup', link: '/meetups'},
+        menuItems: [
+        { icon: 'mdi-face', title: 'Meetups', link: '/meetups'},
         { icon: 'mdi-account-box-multiple', title: 'Organize Meetup', link: 'meetup/new'},
         { icon: 'mdi-account-badge-horizontal-outline', title: 'Profile', link: '/profile'},
         { icon: 'mdi-emoticon-neutral-outline', title: 'Sign up', link: '/signup'},

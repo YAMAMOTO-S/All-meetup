@@ -18,7 +18,7 @@
                <v-carousel-item
                   v-for="meetup in meetups"
                   :key="meetup.id"
-                  :src="meetup.imageURL"
+                  :src="meetup.imageUrl"
                   reverse-transition="fade-transition"
                   transition="fade-transition"
                ></v-carousel-item>
@@ -33,10 +33,10 @@ export default {
    data(){
       return{
          meetups: [
-            { imageURL: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg', 
-              id: '111', title: 'Meetup in New York' },
-            { imageURL: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg', 
-            id: '222', title: 'Meetup in New Paris' }
+            { title: 'TOKYO MEETUPS !!', slug: 'yokyo-meetups', description: 'this is Tokyo Meetup !!',
+               imageUrl: 'https://watashinomori.jp/shared/img/i_top_slide09.jpg', id: '1'},
+            { title: 'JAPAN MEETUPS !!', slug: 'japan-meetups', description: 'this is Japan Meetup !!',
+               imageUrl: 'https://www.realgap.co.uk/tpl/lib/img/public/compressed-images/tpl/lib/img/private/media/1721_496829791__website__-_crop-1200x0-85.jpg', id: '2'}
          ]
       }
    }
