@@ -1,13 +1,11 @@
 <template>
   <v-app>
-    <div>
+    <div class="App">
       <v-toolbar>
       
       <v-toolbar-title>Title</v-toolbar-title>
       <v-toolbar-title>
-        <router-link style="cursor: pointer">
-          <v-icon>mdi-emoticon-neutral-outline</v-icon>
-        </router-link>
+
       </v-toolbar-title>
 
       <v-spacer></v-spacer>
@@ -20,8 +18,8 @@
 
 
     <HelloWorld/>
-    </div>
     
+    </div>
   </v-app>
 </template>
 
