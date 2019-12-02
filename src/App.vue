@@ -37,7 +37,7 @@ export default {
     return{
         menuItems: [
         { icon: 'mdi-face', title: 'Meetups', link: '/meetups'},
-        { icon: 'mdi-account-box-multiple', title: 'Organize Meetup', link: 'meetup/new'},
+        { icon: 'mdi-account-box-multiple', title: 'Organize Meetup', link: '/create'},
         { icon: 'mdi-account-badge-horizontal-outline', title: 'Profile', link: '/profile'},
         { icon: 'mdi-emoticon-neutral-outline', title: 'Sign up', link: '/signup'},
         { icon: 'mdi-account-card-details-outline', title: 'Sign in', link: '/signin'}

@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Meetups from '@/components/Meetups'
 import HelloWorld from '@/components/HelloWorld'
+import CreateMeetup from '@/components/CreateMeetup'
 
 
 Vue.use(VueRouter)
@@ -16,6 +17,11 @@ const routes = [
     path: '/',
     name: 'HelloWorld',
     component: HelloWorld
+  },
+  {
+    path: '/create',
+    name: 'CreateMeetup',
+    component: CreateMeetup
   }
 ]
 
