@@ -15,7 +15,7 @@
                   <v-card-title>{{ meetup.title }}</v-card-title>
                </v-img>
 
-               <v-card-subtitle class="pb-0">{{ meetup.date | date }}</v-card-subtitle>
+               <!-- <v-card-subtitle class="pb-0">{{ meetup.date | date }}</v-card-subtitle> -->
 
                <v-card-text class="text--primary">
                   <div>{{ meetup.description }}</div>
@@ -51,9 +51,13 @@ export default {
     methods: {
 // 削除機能
          deleteMeetup(id){
-            this.meetups = this.meetups.filter(meetup => {
-               return meetup.id != id
-            })
+            db.collection('seetups').doc(id).delete()
+               .then(() => {
+                  // これで自動的に反映している。
+                  this.meetups = this.meetups.filter(meetup => {
+                     return meetup.id != id
+                  })
+               })
          }
       },
    created() {
@@ -63,6 +67,7 @@ export default {
             snapshot.forEach(doc => {
                let meetup = doc.data()
                meetup.id = doc.id
+               // ここでmeetupを差し込む
                this.meetups.push(meetup)
             })
          })
