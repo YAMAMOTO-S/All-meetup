@@ -38,6 +38,8 @@
 </template>
 
 <script>
+import db from '@/firebase/init'
+
 export default {
    data(){
       return {
@@ -53,7 +55,18 @@ export default {
                return meetup.id != id
             })
          }
-      }
+      },
+   created() {
+// fetch data from firestore
+      db.collection('seetups').get()
+         .then(snapshot => {
+            snapshot.forEach(doc => {
+               let meetup = doc.data()
+               meetup.id = doc.id
+               this.meetups.push(meetup)
+            })
+         })
+   }
 }
 </script>
 

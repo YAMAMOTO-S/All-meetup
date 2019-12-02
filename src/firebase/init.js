@@ -13,7 +13,6 @@ import firestore from 'firebase/firestore'
       measurementId: "G-24P1W67S4H"
    };
 const firebaseApp = firebase.initializeApp(firebaseConfig);
-firebaseApp.firestore().settings({ timestampsInSnapshots: true })
 //export firebase database
 export default firebaseApp.firestore()
 
