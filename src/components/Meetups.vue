@@ -26,6 +26,9 @@
                   <v-btn depressed :to="'/meetups/' + meetup.id" max-width="300">
                      View Detail
                   </v-btn>
+                  <v-btn depressed @click="deleteMeetup(meetup.id)">
+                     <v-icon>mdi-delete</v-icon>
+                  </v-btn>
 
                </v-card-actions>
             </v-card>
@@ -45,7 +48,15 @@ export default {
                imageUrl: 'https://www.realgap.co.uk/tpl/lib/img/public/compressed-images/tpl/lib/img/private/media/1721_496829791__website__-_crop-1200x0-85.jpg', id: '2'}
          ]
       }
-   }
+   },
+    methods: {
+// 削除機能
+         deleteMeetup(id){
+            this.meetups = this.meetups.filter(meetup => {
+               return meetup.id != id
+            })
+         }
+      }
 }
 </script>
 
