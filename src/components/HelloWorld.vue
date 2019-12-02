@@ -33,10 +33,7 @@ export default {
    data(){
       return{
          meetups: [
-            { title: 'TOKYO MEETUPS !!', slug: 'yokyo-meetups', description: 'this is Tokyo Meetup !!',
-               imageUrl: 'https://watashinomori.jp/shared/img/i_top_slide09.jpg', id: '1'},
-            { title: 'JAPAN MEETUPS !!', slug: 'japan-meetups', description: 'this is Japan Meetup !!',
-               imageUrl: 'https://www.realgap.co.uk/tpl/lib/img/public/compressed-images/tpl/lib/img/private/media/1721_496829791__website__-_crop-1200x0-85.jpg', id: '2'}
+            
          ]
       }
    }
