@@ -61,7 +61,7 @@ export default {
          if(this.title){
             this.feedback = null
             // slugifyを使って小文字化する。
-            this.slug = slugify('this.title', {
+            this.slug = slugify(this.title, {
                replacement: '-',
                remove: /[$*_+~.()'"!\-:@]/g,
                lower: true

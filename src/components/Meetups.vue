@@ -26,8 +26,13 @@
                   <v-btn depressed :to="'/meetups/' + meetup.id" max-width="300">
                      View Detail
                   </v-btn>
+                  <!-- 削除 -->
                   <v-btn depressed @click="deleteMeetup(meetup.id)">
                      <v-icon>mdi-delete</v-icon>
+                  </v-btn>
+                  <!-- 編集 -->
+                  <v-btn depressed :to="{ name: 'EditMeetup', params: {meetup_slug: meetup.slug}}">
+                     <v-icon>mdi-pencil</v-icon>
                   </v-btn>
 
                </v-card-actions>
@@ -43,9 +48,7 @@ import db from '@/firebase/init'
 export default {
    data(){
       return {
-         meetups: [
-           
-         ]
+         meetups: [ ]
       }
    },
     methods: {
