@@ -56,7 +56,7 @@ export default {
       },
    },
    methods: {
-// firebaseに送信      
+// Meetup をfirebaseに送信する。      
       submitMeetup() {
          if(this.title){
             this.feedback = null
@@ -74,6 +74,7 @@ export default {
                imageUrl: this.imageUrl,
                description: this.description
             }).then(() => {
+               // 完了するとホームに戻る
                this.$router.push({ name: 'HelloWorld'})
             }).catch(err => {
                console.log(err)

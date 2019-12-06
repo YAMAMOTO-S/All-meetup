@@ -3,7 +3,8 @@ import VueRouter from 'vue-router'
 import Meetups from '@/components/Meetups'
 import HelloWorld from '@/components/HelloWorld'
 import CreateMeetup from '@/components/CreateMeetup'
-
+import EditMeetup from '@/components/EditMeetup'
+import Meetup from '@/components/Meetup'
 
 Vue.use(VueRouter)
 
@@ -22,6 +23,17 @@ const routes = [
     path: '/create',
     name: 'CreateMeetup',
     component: CreateMeetup
+  },
+  {
+    path: '/edit-meetup/:meetup_slug',
+    name: 'EditMeetup',
+    component: EditMeetup
+  },
+  {
+    path: '/meetups/:id',
+    name: 'Meetup',
+    props: true,
+    component: Meetup
   }
 ]
 
