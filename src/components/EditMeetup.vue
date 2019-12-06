@@ -42,6 +42,7 @@ export default {
       }
    },
    created(){
+// Firebaseからデータを持ってくる。
 // refに引き抜いたオブジェクトを代入している。      
       let ref = db.collection('seetups').where('slug', '==', this.$route.params.meetup_slug)
       ref.get().then(snapshot => {
@@ -53,6 +54,7 @@ export default {
       })
    },
    methods: {
+// 編集機能      
       EditMeetup(){
          if(this.meetup.title){
             this.feedback = null

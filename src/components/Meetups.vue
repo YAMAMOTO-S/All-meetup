@@ -23,7 +23,7 @@
 
                <v-card-actions>
                   <!-- 個別のページに行く -->
-                  <v-btn depressed :to="'/meetups/' + meetup.id" max-width="300">
+                  <v-btn depressed :to="{ name: 'Meetup', params: {meetup_slug: meetup.slug}}">
                      View Detail
                   </v-btn>
                   <!-- 削除 -->
