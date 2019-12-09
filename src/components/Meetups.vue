@@ -17,7 +17,7 @@
 
                <!-- <v-card-subtitle class="pb-0">{{ meetup.date | date }}</v-card-subtitle> -->
 
-               <v-card-text class="text--primary">
+               <v-card-text class="text--primary" style="white-space:pre-wrap; word-wrap:break-word;">
                   <div>{{ meetup.description }}</div>
                </v-card-text>
 

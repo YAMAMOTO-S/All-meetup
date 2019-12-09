@@ -5,6 +5,7 @@ import HelloWorld from '@/components/HelloWorld'
 import CreateMeetup from '@/components/CreateMeetup'
 import EditMeetup from '@/components/EditMeetup'
 import Meetup from '@/components/Meetup'
+import Chat from '@/components/Chat'
 
 Vue.use(VueRouter)
 
@@ -34,6 +35,11 @@ const routes = [
     name: 'Meetup',
     props: true,
     component: Meetup
+  },
+  {
+    path: '/chat',
+      name: 'Chat',
+      component: Chat
   }
 ]
 

@@ -2,7 +2,16 @@
    <v-container>
       <v-row>
 
-         <v-col class="mx-auto" cols="12" md="9" sm="9">
+         <v-col >
+            <v-card class="mx-auto mb-7" max-width="800">
+            <v-img
+                  class=""
+                  height="200px"
+                  :src="topimage"
+                  >
+            </v-img>
+
+
             <form @submit.prevent="submitMeetup">
 
                <h2 class="title">Create your meetup!!</h2>
@@ -25,6 +34,7 @@
                </div>
 
             </form>
+            </v-card>
          </v-col>
 
       </v-row>
@@ -45,7 +55,8 @@ export default {
          description: null,
          imageUrl: null,
          feedback: '',
-         slug: null
+         slug: null,
+         topimage: 'https://image.freepik.com/free-vector/group-people-working-together_52683-28615.jpg'
       }
    },
    computed: {
@@ -95,10 +106,13 @@ export default {
 }
 .subbtn{
    text-align: center;
-   margin: 20px;
+   padding-bottom: 50px;
 }
 .imagepre{
    width: auto;
+}
+form {
+   margin: 100px;
 }
 
 </style>

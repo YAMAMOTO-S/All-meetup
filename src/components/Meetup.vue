@@ -1,3 +1,5 @@
+// params でslugを持ってきて、それを元にファイルの特定を行っている。
+
 <template>
    <v-container>
       <v-row>
