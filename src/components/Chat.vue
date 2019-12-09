@@ -2,6 +2,7 @@
    <v-container>
       <v-row>
          <v-col>
+            
             <v-card class="mx-auto mb-7" max-width="800">
                <v-img
                   class=""
@@ -10,12 +11,13 @@
                   >
                </v-img>
                <v-card-text>
-                  <h1 class="title">Enter Yout Name</h1>
+                  <h1 class="title">Enter your name</h1>
                   <form @submit.prevent="enterChat">
+                     <p v-if="feedback">{{ feedback }}</p>
                      <v-text-field label="Name" name="name" required v-model="name">
                      </v-text-field>
                      <div class="subbtn">
-                        <v-btn type="submit">
+                        <v-btn large type="submit">
                          enter
                         </v-btn> 
                      </div>
@@ -32,14 +34,19 @@
 export default {
    data(){
       return{
-         name: '',
-         imageUrl: 'https://image.freepik.com/free-vector/contact-us-concept-landing-page_52683-18636.jpg'
+         name: null,
+         imageUrl: 'https://image.freepik.com/free-vector/contact-us-concept-landing-page_52683-18636.jpg',
+         feedback: null
       }
    },
    methods: {
       enterChat(){
-
-      }
+         if(this.name) {
+            this.$router.push({ name: 'ChatRoom', params: { name: this.name } })
+         } else {
+            this.feedback = 'You must enter your name to join'
+         }
+      },
    }
 }
 </script>

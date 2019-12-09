@@ -6,6 +6,7 @@ import CreateMeetup from '@/components/CreateMeetup'
 import EditMeetup from '@/components/EditMeetup'
 import Meetup from '@/components/Meetup'
 import Chat from '@/components/Chat'
+import ChatRoom from '@/components/ChatRoom'
 
 Vue.use(VueRouter)
 
@@ -40,7 +41,20 @@ const routes = [
     path: '/chat',
       name: 'Chat',
       component: Chat
-  }
+  },
+  {
+    path: '/chatroom',
+    name: 'ChatRoom',
+    component: ChatRoom,
+    props: true,
+    beforeEnter: (to, from, next) => {
+      if (to.params.name) {
+        next()
+      } else {
+        next({ name: 'Chat' })
+      }
+    }
+  },
 ]
 
 const router = new VueRouter({
