@@ -21,10 +21,11 @@
                </v-card-text>
             </v-card>
             <br>
-            <v-text-field
+            <!-- <v-text-field
             label="Text"
             outlined
-          ></v-text-field>      
+          ></v-text-field> -->
+          <Message :name="name" />      
 
          </v-col>
       </v-row>
@@ -32,9 +33,13 @@
 </template>
 
 <script>
+import Message from '@/components/Message'
 
 export default {
    props: ['name'],
+   components: {
+      Message
+   },
    data(){
       return {
          message: ''
@@ -51,3 +56,6 @@ span {
    margin-right: 10px;
 }
 </style>
+
+// チャットの本体と入力欄はコンポーネントを分けている。
+// 別々の物をfirebaseに送ったりするから、そっちの方が良い。
