@@ -9,10 +9,10 @@
                   <br>
                   <div class="card-content">
                      <ul class="messages">
-                        <li>
-                           <span class="teal-text username">NEME</span>
-                           <span>time</span>
-                           <h3>koreha tesuto</h3>
+                        <li v-for="message in messages" :key="message.id">
+                           <span class="teal-text username">{{ message.name }}</span>
+                           <span>{{ message.timestamp }}</span>
+                        <h3>{{ message.content }}</h3>
                         </li>
                      </ul>
                      <br>
@@ -34,6 +34,7 @@
 
 <script>
 import Message from '@/components/Message'
+import db from '@/firebase/init'
 
 export default {
    props: ['name'],
@@ -42,8 +43,27 @@ export default {
    },
    data(){
       return {
-         message: ''
+         messages: []
       }
+   },
+   created(){
+      let ref = db.collection('messages')
+      // 更新されたらその箇所だけ見る。
+      ref.onSnapshot(snapshot => {
+         snapshot.docChanges().forEach(change => {
+            // 変更箇所をchnageで個別に取り出して、messageに入れる。
+            if(change.type == 'added'){
+               // docで全てのデータをとっている
+               let doc = change.doc
+               this.messages.push({
+                  id: doc.id,
+                  content: doc.data().content,
+                  name: doc.data().name,
+                  timestamp: doc.timestamp
+               })
+            }
+         })
+      })
    }
 }
 </script>
