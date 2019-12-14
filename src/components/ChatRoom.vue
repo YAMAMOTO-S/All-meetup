@@ -3,7 +3,8 @@
       <v-row>
          <v-col>
 
-            <v-card>
+            <v-card class="mx-auto mb-7"
+               max-width="800">
                <v-card-text>
                   <h1>Chat Room</h1>
                   <br>
@@ -12,20 +13,15 @@
                         <li v-for="message in messages" :key="message.id">
                            <span class="teal-text username">{{ message.name }}</span>
                            <span>{{ message.timestamp }}</span>
-                        <h3>{{ message.content }}</h3>
+                           <h3>{{ message.content }}  <v-btn x-small icon @click="deleteMessage(message.id)"><v-icon>mdi-delete</v-icon></v-btn></h3>
                         </li>
                      </ul>
-                     <br>
+                     <br><br>
                      
                   </div>
                </v-card-text>
             </v-card>
-            <br>
-            <!-- <v-text-field
-            label="Text"
-            outlined
-          ></v-text-field> -->
-          <Message :name="name" />      
+            <Message :name="name" />
 
          </v-col>
       </v-row>
@@ -64,6 +60,16 @@ export default {
             }
          })
       })
+   },
+   methods: {
+      deleteMessage(id){
+         db.collection('messages').doc(id).delete()
+         .then(() => {
+            this.messages = this.messages.filter(message => {
+               return message.id != id
+            })
+         })
+      }
    }
 }
 </script>
