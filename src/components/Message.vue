@@ -1,17 +1,15 @@
 <template>
-   <!-- <v-container> -->
-          <form @submit.prevent="submittext">
-           <v-text-field
-            label="New Message (enter to add)"
-            outlined
-            @submit.prevent="submittext"
-            v-model="newMessage"
-           >
-          <v-btn type="submit"></v-btn>
-          </v-text-field>
-          <h5 class="red--text text--lighten-2" v-if="feedback" >{{feedback}}</h5>
-          </form>
-   <!-- </v-container> -->
+   <form @submit.prevent="submittext">
+      <v-text-field
+      label="New Message (enter to add)"
+      outlined
+      @submit.prevent="submittext"
+      v-model="newMessage"
+      >
+      <v-btn type="submit"></v-btn>
+      </v-text-field>
+      <h5 class="red--text text--lighten-2" v-if="feedback" >{{feedback}}</h5>
+   </form>   
 </template>
 
 
