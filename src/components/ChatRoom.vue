@@ -15,11 +15,13 @@
                   <h1>Chat Room</h1>
                   <br>
                   <div class="card-content">
-                     <ul class="messages">
+                     <ul class="messages" v-chat-scroll>
                         <li v-for="message in messages" :key="message.id">
                            <span class="teal-text username">{{ message.name }}</span>
                            <h3>{{ message.content }}  <v-btn x-small icon @click="deleteMessage(message.id)"><v-icon>mdi-delete</v-icon></v-btn></h3>
+                           <span>{{ message.timestamp }}</span>
                         </li>
+                        
                      </ul>
                      <br><br>
                      
@@ -86,6 +88,20 @@ export default {
 }
 span {
    margin-right: 10px;
+}
+.messages{
+   max-height: 300px;
+   overflow: auto;
+}
+.messages::-webkit-scrollbar {
+  width: 3px;
+}
+.messages::-webkit-scrollbar-track {
+  background: #ddd;
+}
+ 
+.messages::-webkit-scrollbar-thumb {
+  background: #aaa; 
 }
 </style>
 
