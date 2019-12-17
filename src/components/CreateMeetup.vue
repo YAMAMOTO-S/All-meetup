@@ -46,8 +46,11 @@
 import db from '@/firebase/init'
 import slugify from 'slugify'
 
-
 export default {
+   components: {
+      
+   },
+
    data(){
       return{
          title: null,
@@ -83,10 +86,11 @@ export default {
                slug: this.slug,
                location: this.location,
                imageUrl: this.imageUrl,
-               description: this.description
+               description: this.description,
+               timestamp: Date.now()
             }).then(() => {
                // 完了するとホームに戻る
-               this.$router.push({ name: 'HelloWorld'})
+               this.$router.push({ name: 'Meetups'})
             }).catch(err => {
                console.log(err)
             })
@@ -114,5 +118,7 @@ export default {
 form {
    margin: 100px;
 }
-
+.test {
+   border-color: black
+  }
 </style>

@@ -6,7 +6,9 @@ import vuetify from './plugins/vuetify';
 import VueChatScroll from 'vue-chat-scroll'
 
 
+
 Vue.use(VueChatScroll)
+
 
 Vue.config.productionTip = false
 
