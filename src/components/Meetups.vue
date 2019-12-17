@@ -15,10 +15,9 @@
                   <v-card-title>{{ meetup.title }}</v-card-title>
                </v-img>
 
-               <!-- <v-card-subtitle class="pb-0">{{ meetup.date | date }}</v-card-subtitle> -->
-
                <v-card-text class="text--primary" style="white-space:pre-wrap; word-wrap:break-word;">
                   <div>{{ meetup.description }}</div>
+                  <div> Created:  {{ meetup.timestamp}}</div>
                </v-card-text>
 
                <v-card-actions>
