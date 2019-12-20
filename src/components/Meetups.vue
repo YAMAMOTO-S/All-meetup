@@ -18,6 +18,7 @@
                <v-card-text class="text--primary" style="white-space:pre-wrap; word-wrap:break-word;">
                   <div>{{ meetup.description }}</div>
                   <div> Created:  {{ meetup.timestamp}}</div>
+                  <div>Date: {{ meetup.date}}</div>
                </v-card-text>
 
                <v-card-actions>
@@ -33,7 +34,7 @@
                   <v-btn depressed :to="{ name: 'EditMeetup', params: {meetup_slug: meetup.slug}}">
                      <v-icon>mdi-pencil</v-icon>
                   </v-btn>
-
+                  
                </v-card-actions>
             </v-card>
          </v-col>

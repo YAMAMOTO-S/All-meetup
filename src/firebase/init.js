@@ -15,5 +15,4 @@ import firestore from 'firebase/firestore'
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 //export firebase database
 export default firebaseApp.firestore()
-
 firestore

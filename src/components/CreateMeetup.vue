@@ -5,12 +5,10 @@
          <v-col >
             <v-card class="mx-auto mb-7" max-width="800">
             <v-img
-                  class=""
                   height="200px"
                   :src="topimage"
                   >
             </v-img>
-
 
             <form @submit.prevent="submitMeetup">
 
@@ -24,7 +22,15 @@
                </v-text-field>
                <v-textarea label="Description" name="description" required multi-line v-model="description">
                </v-textarea>
+               <div>
+                  <p class="datetitle">Choose a Data you want</p>
+                  <v-date-picker v-model="date" color="blue-grey lighten-3" full-width>
+                     <p>{{ date }}</p>
+                  </v-date-picker>
+               </div>
+               
 <!-- 写真プレビュー -->
+<br>
                <div class="subbtn">
                   <img :src="imageUrl" height="200">
                </div>
@@ -59,7 +65,8 @@ export default {
          imageUrl: null,
          feedback: '',
          slug: null,
-         topimage: 'https://image.freepik.com/free-vector/group-people-working-together_52683-28615.jpg'
+         topimage: 'https://image.freepik.com/free-vector/group-people-working-together_52683-28615.jpg',
+         date: '',
       }
    },
    computed: {
@@ -68,6 +75,10 @@ export default {
          return this.title !== '' && this.location !== '' 
          && this.imageUrl !== '' && this.description !== ''
       },
+      submitDate(){
+        const date = new Date(this.date).toISOString().substr(0, 10)
+        return date
+      }
    },
    methods: {
 // Meetup をfirebaseに送信する。      
@@ -87,7 +98,8 @@ export default {
                location: this.location,
                imageUrl: this.imageUrl,
                description: this.description,
-               timestamp: Date.now()
+               timestamp: Date.now(),
+               date: this.submitDate
             }).then(() => {
                // 完了するとホームに戻る
                this.$router.push({ name: 'Meetups'})
@@ -112,13 +124,15 @@ export default {
    text-align: center;
    padding-bottom: 50px;
 }
-.imagepre{
-   width: auto;
-}
+
 form {
    margin: 100px;
 }
 .test {
    border-color: black
+  }
+  .datetitle{
+     color: #898989;
+     margin-bottom: 30px
   }
 </style>
