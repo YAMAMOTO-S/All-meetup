@@ -17,7 +17,7 @@
 
                <v-card-text class="text--primary" style="white-space:pre-wrap; word-wrap:break-word;">
                   <div>{{ meetup.description }}</div>
-                  <div> Created:  {{ meetup.timestamp}}</div>
+                  <div>Created:{{ meetup.timestamp}}</div>
                   <div>Date: {{ meetup.date}}</div>
                </v-card-text>
 
@@ -64,7 +64,7 @@ export default {
          }
       },
    created() {
-// fetch data from firestore
+// firestoreからもってくる
       db.collection('seetups').get()
          .then(snapshot => {
             snapshot.forEach(doc => {

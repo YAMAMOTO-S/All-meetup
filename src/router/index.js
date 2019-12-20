@@ -7,6 +7,7 @@ import EditMeetup from '@/components/EditMeetup'
 import Meetup from '@/components/Meetup'
 import Chat from '@/components/Chat'
 import ChatRoom from '@/components/ChatRoom'
+import Signup from '@/components/user/Signup'
 
 Vue.use(VueRouter)
 
@@ -55,6 +56,11 @@ const routes = [
       }
     }
   },
+  {
+    path: '/signup',
+    name: 'Signup',
+    component: Signup
+  }
 ]
 
 const router = new VueRouter({

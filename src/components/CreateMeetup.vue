@@ -30,7 +30,7 @@
                </div>
                
 <!-- 写真プレビュー -->
-<br>
+               <br>
                <div class="subbtn">
                   <img :src="imageUrl" height="200">
                </div>
@@ -74,7 +74,9 @@ export default {
          // 全て埋めないと浮き出ない用になっている
          return this.title !== '' && this.location !== '' 
          && this.imageUrl !== '' && this.description !== ''
+         && this.date !== ''
       },
+      // firestoreに送るDateを設定
       submitDate(){
         const date = new Date(this.date).toISOString().substr(0, 10)
         return date
